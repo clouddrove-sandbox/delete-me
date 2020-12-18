@@ -22,7 +22,7 @@ pipeline {
         }      
         
           
-        stage('Build') {
+        stage('Push') {
             steps {    
                 sh 'git add .'
                 sh 'git status'
