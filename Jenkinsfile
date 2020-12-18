@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'git config --global user.email "anmol@clouddrove.com"'
                 sh 'git config --global user.name "Anmol"'
+                sh 'git version'
                 sh 'git pull origin production --no-commit'
                 //sh '<BUILD COMMAND>'
 
