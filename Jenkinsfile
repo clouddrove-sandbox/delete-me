@@ -21,7 +21,6 @@ pipeline {
 
             }
         }      
-             
         stage('Push') {
             steps {    
                 sh 'git add .'
