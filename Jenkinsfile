@@ -15,14 +15,10 @@ pipeline {
             steps {
                 sh 'git config --global user.email "anmol@clouddrove.com"'
                 sh 'git config --global user.name "Anmol"'
-                sh 'git pull origin production;env; echo "$BRANCH_NAME $BUILD_NUMBER"'
+                sh 'git pull origin production'
                 //sh '<BUILD COMMAND>'
-
-            }
-        }
-        stage('Push') {
-            steps {
                 sh 'git add .'
+                sh 'git status'
                 sh 'git commit -m "Jenkins Pipeline build $BRANCH_NAME-$BUILD_NUMBER [ci skip]"'
                 sh 'git push origin $BRANCH_NAME'
 
