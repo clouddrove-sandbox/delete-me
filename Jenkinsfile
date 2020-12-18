@@ -7,7 +7,7 @@ pipeline {
                 sh 'git config --global user.email "anmol@clouddrove.com"'
                 sh 'git config --global user.name "Anmol"'
                 sh 'git pull origin production'
-                sh 'cat printme.txt'
+                sh 'cat print-me.txt'
             }
         }
     }
