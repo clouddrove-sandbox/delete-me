@@ -15,22 +15,19 @@ pipeline {
             steps {
                 sh 'git config --global user.email "anmol@clouddrove.com"'
                 sh 'git config --global user.name "Anmol"'
-                sh 'sudo apt-get install git -y;git version'
+                sh 'git checkout $BRANCH_NAME '
                 sh 'git pull origin production --no-commit'
-                //sh '<BUILD COMMAND>'
+                //sh 'php bin/magento setup:static-content:deploy'
 
             }
         }      
-        
-          
+             
         stage('Push') {
             steps {    
                 sh 'git add .'
                 sh 'git status'
                 sh 'git commit -m "Jenkins Pipeline build $BRANCH_NAME-$BUILD_NUMBER [ci skip]"'
                 sh 'git push origin $BRANCH_NAME'
-
-
             }
         }
         // stage('Deploy') {
