@@ -13,12 +13,13 @@ pipeline {
         }        
         stage('Build') {
             steps {
+                sshagent(['101ac0de-323a-4789-bc5f-24e500645924']){
                 sh 'git config --global user.email "anmol@clouddrove.com"'
                 sh 'git config --global user.name "Anmol"'
                 sh 'git checkout $BRANCH_NAME; git pull '
                 sh 'git pull origin production --no-commit'
                 //sh 'php bin/magento setup:static-content:deploy'
-
+                }
             }
         }      
         stage('Push') {
