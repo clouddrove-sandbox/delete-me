@@ -29,14 +29,14 @@ pipeline {
                 sh 'git push origin $BRANCH_NAME'
             }
         }
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'git config --global user.email "anmol@clouddrove.com"'
-        //         sh 'git config --global user.name "Anmol"'
-        //         sh 'git pull origin production'
-        //         //sh '<BUILD COMMAND>'
+        stage('Deploy') {
+            steps {
+                sh 'ssh $SERVER_IP "bin/magento maintenance:enable;bin/magento maintenance:status"'
+                sh 'ssh $SERVER_IP "git clone -b $REPO_URL"'
+                //Premisions etc
+                sh 'ssh $SERVER_IP "bin/magento maintenance:disable;bin/magento maintenance:status"'
 
-        //     }
-        // }                
+            }
+        }                
     }
 }
