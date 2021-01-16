@@ -18,6 +18,7 @@ pipeline {
                 sh 'git config --global user.name "Anmol"'
                 sh 'git checkout $BRANCH_NAME; git pull '
                 sh 'git pull origin production --no-commit'
+                    
                 //sh 'php bin/magento setup:static-content:deploy'
                 }
             }
