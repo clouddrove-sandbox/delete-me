@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'docker-agent-magento2' }
     stages {
         stage('Run CI?') {
             steps {
